@@ -2,6 +2,9 @@ package com.example.cosmic.androidappclasses;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.ThumbnailUtils;
 
 import java.io.ByteArrayOutputStream;
 
@@ -21,5 +24,10 @@ public class BitmapManager {
     // convert from byte array to bitmap
     public Bitmap getImage(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
+    }
+
+    public Bitmap DrawabletoBitmapthumpnail(Drawable drawable){
+        BitmapDrawable bitD = (BitmapDrawable) drawable;
+        return ThumbnailUtils.extractThumbnail(bitD.getBitmap(), 200, 200);
     }
 }
